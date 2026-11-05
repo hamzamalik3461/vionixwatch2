@@ -1,0 +1,438 @@
+@import 'tailwindcss' source('../');
+
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+body {
+  @apply m-0;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: var(--font-code);
+}
+
+:root {
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-heading: 'Sora', 'Manrope', system-ui, sans-serif;
+  --font-code: 'JetBrains Mono', ui-monospace, monospace;
+  --content-width: 76rem;
+  --reading-width: 42rem;
+  --background: oklch(0.13 0.012 55);
+  --foreground: oklch(0.96 0.008 55);
+  --card: oklch(0.175 0.014 55);
+  --card-foreground: oklch(0.96 0.008 55);
+  --popover: oklch(0.19 0.016 55);
+  --popover-foreground: oklch(0.96 0.008 55);
+  --primary: #a90e02; /* Milano Red */
+  --primary-foreground: #fffbd4;
+  --secondary: oklch(0.23 0.016 55);
+  --secondary-foreground: oklch(0.94 0.008 55);
+  --muted: oklch(0.21 0.014 55);
+  --muted-foreground: oklch(0.7 0.02 55);
+  --accent: oklch(0.25 0.022 55);
+  --accent-foreground: oklch(0.97 0.008 55);
+  --electric: #ffe135; /* Vivid lemon (was pale Lemon Chiffon #fffbd4) */
+  --destructive: oklch(0.62 0.22 22);
+  --destructive-foreground: oklch(0.99 0 0);
+  --success: oklch(0.76 0.17 155);
+  --warning: oklch(0.82 0.16 80);
+  --border: oklch(0.27 0.018 55);
+  --input: oklch(0.28 0.018 55);
+  --ring: #a90e02;
+  --chart-1: #a90e02;
+  --chart-2: #ffe135;
+  --chart-3: oklch(0.76 0.17 155);
+  --chart-4: oklch(0.82 0.16 80);
+  --chart-5: oklch(0.65 0.22 15);
+  --radius: 0.875rem;
+  --sidebar: oklch(0.155 0.013 55);
+  --sidebar-foreground: oklch(0.96 0.008 55);
+  --sidebar-primary: #a90e02;
+  --sidebar-primary-foreground: #fffbd4;
+  --sidebar-accent: oklch(0.22 0.016 55);
+  --sidebar-accent-foreground: oklch(0.96 0.008 55);
+  --sidebar-border: oklch(0.25 0.016 55);
+  --sidebar-ring: #a90e02;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+  --container-content: var(--content-width);
+  --container-reading: var(--reading-width);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-electric: var(--electric);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --font-mono: var(--font-code);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Vionix Watch atmosphere */
+.nw-grid-bg {
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%);
+}
+
+.nw-glow {
+  background:
+    radial-gradient(
+      40rem 24rem at 20% 0%,
+      rgb(169 14 2 / 0.38),
+      transparent 70%
+    ),
+    radial-gradient(
+      36rem 22rem at 85% 10%,
+      rgb(255 225 53 / 0.16),
+      transparent 70%
+    );
+}
+
+.nw-gradient-text {
+  background: linear-gradient(100deg, var(--primary), var(--electric));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nw-panel {
+  background: linear-gradient(
+    180deg,
+    oklch(0.19 0.016 285 / 0.9),
+    oklch(0.16 0.013 285 / 0.9)
+  );
+}
+
+@keyframes nw-float-up {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1.15);
+  }
+  100% {
+    transform: translateY(-220px) scale(1);
+    opacity: 0;
+  }
+}
+
+.nw-reaction {
+  animation: nw-float-up 2.4s ease-out forwards;
+}
+
+@keyframes nw-speaking {
+  0%,
+  100% {
+    box-shadow: 0 0 0 2px var(--success);
+  }
+  50% {
+    box-shadow:
+      0 0 0 3px var(--success),
+      0 0 14px 2px oklch(0.76 0.17 155 / 0.5);
+  }
+}
+
+.nw-speaking {
+  animation: nw-speaking 1.2s ease-in-out infinite;
+}
+
+@keyframes nw-eq {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.nw-eq > span {
+  animation: nw-eq 0.9s ease-in-out infinite;
+  transform-origin: bottom;
+}
+.nw-eq > span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.nw-eq > span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes nw-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.nw-fade-up {
+  animation: nw-fade-up 0.6s ease-out both;
+}
+.nw-d-1 {
+  animation-delay: 0.08s;
+}
+.nw-d-2 {
+  animation-delay: 0.16s;
+}
+.nw-d-3 {
+  animation-delay: 0.24s;
+}
+.nw-d-4 {
+  animation-delay: 0.32s;
+}
+
+@keyframes nw-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.nw-float {
+  animation: nw-float 5s ease-in-out infinite;
+}
+
+@keyframes nw-breathe {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.nw-breathe {
+  animation: nw-breathe 7s ease-in-out infinite;
+}
+
+/* Drifting ambient orbs for page backgrounds. */
+.nw-orb {
+  position: absolute;
+  z-index: 0;
+  width: 22rem;
+  height: 22rem;
+  border-radius: 9999px;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: nw-drift 18s ease-in-out infinite alternate;
+}
+
+.nw-orb-a {
+  top: -4rem;
+  left: -6rem;
+  background: rgb(169 14 2 / 0.25);
+}
+
+.nw-orb-b {
+  top: 10rem;
+  right: -8rem;
+  background: rgb(255 225 53 / 0.1);
+  animation-duration: 24s;
+  animation-delay: -6s;
+}
+
+@keyframes nw-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(3rem, 2rem) scale(1.15);
+  }
+  100% {
+    transform: translate(-2rem, 4rem) scale(0.95);
+  }
+}
+
+/* Animated sweep across gradient text (hero headings). */
+.nw-gradient-move {
+  background-size: 200% 100%;
+  animation: nw-gradient-move 6s ease-in-out infinite alternate;
+}
+
+@keyframes nw-gradient-move {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+/* Small scale-in for badges and chat bubbles. */
+@keyframes nw-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.nw-pop {
+  animation: nw-pop 0.25s ease-out both;
+}
+
+/* Incoming-call banner entrance. */
+@keyframes nw-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.nw-slide-down {
+  animation: nw-slide-down 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+
+@keyframes nw-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.nw-fade-in {
+  animation: nw-fade-in 0.3s ease-out both;
+}
+
+/* Ringing pulse around an avatar during calls. */
+.nw-pulse-ring {
+  position: relative;
+  animation: nw-pulse-ring 1.6s ease-out infinite;
+}
+
+@keyframes nw-pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgb(169 14 2 / 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgb(169 14 2 / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(169 14 2 / 0);
+  }
+}
+
+/* Soft attention glow (accept-call button). */
+.nw-ring-glow {
+  animation: nw-ring-glow 1.4s ease-in-out infinite;
+}
+
+@keyframes nw-ring-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.76 0.17 155 / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 18px 4px oklch(0.76 0.17 155 / 0.45);
+  }
+}
+
+/* Marquee-style slow spin for decorative dashes. */
+.nw-spin-slow {
+  animation: nw-spin-slow 14s linear infinite;
+}
+
+@keyframes nw-spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nw-reaction,
+  .nw-speaking,
+  .nw-fade-up,
+  .nw-d-1,
+  .nw-d-2,
+  .nw-d-3,
+  .nw-d-4,
+  .nw-float,
+  .nw-breathe,
+  .nw-orb,
+  .nw-gradient-move,
+  .nw-pop,
+  .nw-slide-down,
+  .nw-fade-in,
+  .nw-pulse-ring,
+  .nw-ring-glow,
+  .nw-spin-slow,
+  .nw-eq > span {
+    animation: none;
+  }
+}
+
+input[type='range'].nw-range {
+  accent-color: var(--primary);
+}
